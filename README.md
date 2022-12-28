@@ -8,10 +8,8 @@
 ### Команды для работы с frontend приложением
 *Выполняются в контейнере node (docker-compose exec node sh или make app-node)*
 * make app-build - сборка приложения (доступно и из корня проекта)
-* yarn && yarn build - сборка приложения
-* yarn build - сборка приложения, если просто yarn уже запускался
-* yarn start - запуск development сервера
-* yarn server - запуск mock сервера
+* npm i && npm run build - сборка приложения
+* npm run build - сборка приложения, если просто npm i уже запускался
 
 ### Конфигурационные файлы приложения
 ./.env - настройка портов docker приложения:  
