@@ -1,5 +1,5 @@
 ### Установка приложения
-* git clone https://gitlab.2a2i.org/nlp/probing-gui-docker.git
+* git clone https://gitlab.2a2i.org/bioinformatics/dnalm-docker.git
 * make app-init  
   *скачивается и собирается frontend приложение, скачивается backend приложение, создаётся .env файл из примера*
 * положить в проект файл с весами backend/src/spliceai/data/checkpoints/spliceai/model_best.pth
