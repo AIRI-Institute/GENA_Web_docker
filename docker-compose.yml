@@ -14,11 +14,25 @@ services:
       - .env
 
 
-  backend:
+  gena:
     build: ./backend/src/spliceai
     restart: unless-stopped
     volumes:
       - ./backend/src/spliceai:/src
+    #environment:
+      # Для отладки (при запуске в релиз убрать!)
+      #- FLASK_DEBUG=True
+      # Позволяет отслеживать процесс работы приложения в командной строке
+      #- PYTHONUNBUFFERED=True
+    env_file:
+      - .env
+
+  dnabert:
+    build: ./backend/src/DeepSTARR
+    restart: unless-stopped
+    volumes:
+      - ./backend/src/DeepSTARR:/src
+      - ./backend/src/DeepSTARR/respond/DNABERT_storage:/DNABERT_storage
     #environment:
       # Для отладки (при запуске в релиз убрать!)
       #- FLASK_DEBUG=True
