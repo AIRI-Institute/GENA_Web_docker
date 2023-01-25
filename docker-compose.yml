@@ -32,6 +32,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./backend/src/DeepSTARR:/src
+      - ./backend/src/DeepSTARR/respond/DNABERT_storage:/DNABERT_storage
     #environment:
       # Для отладки (при запуске в релиз убрать!)
       #- FLASK_DEBUG=True
