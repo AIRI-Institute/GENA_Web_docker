@@ -13,31 +13,49 @@ services:
     env_file:
       - .env
 
-
-  gena:
+  #GENA
+  gena-spliceai:
     build: ./backend/src/spliceai
     restart: unless-stopped
     volumes:
       - ./backend/src/spliceai:/src
-    #environment:
-      # Для отладки (при запуске в релиз убрать!)
-      #- FLASK_DEBUG=True
-      # Позволяет отслеживать процесс работы приложения в командной строке
-      #- PYTHONUNBUFFERED=True
     env_file:
       - .env
 
-  dnabert:
-    build: ./backend/src/DeepSTARR
+  gena-deepsea:
+    build: ./backend/src/deepsea
     restart: unless-stopped
     volumes:
-      - ./backend/src/DeepSTARR:/src
-      - ./backend/src/DeepSTARR/respond/DNABERT_storage:/DNABERT_storage
-    #environment:
-      # Для отладки (при запуске в релиз убрать!)
-      #- FLASK_DEBUG=True
-      # Позволяет отслеживать процесс работы приложения в командной строке
-      #- PYTHONUNBUFFERED=True
+      - ./backend/src/deepsea:/src
+      - ./backend/src/deepsea/respond/FIX:/
+    env_file:
+      - .env
+
+  #DNABERT
+  dnabert-deepstarr:
+    build: ./backend/src/DNABERT-DeepSTARR
+    restart: unless-stopped
+    volumes:
+      - ./backend/src/DNABERT-DeepSTARR:/src
+      - ./backend/src/DNABERT-DeepSTARR/respond/DNABERT_storage:/DNABERT_storage
+    env_file:
+      - .env
+
+  dnabert-deepsea:
+    build: ./backend/src/DNABERT-DeepSea
+    restart: unless-stopped
+    volumes:
+      - ./backend/src/DNABERT-DeepSea:/src
+      - ./backend/src/DNABERT-DeepSea/respond/FIX:/
+    env_file:
+      - .env
+
+  dnabert-promoters-2000:
+    build: ./backend/src/DNABERT-Promoters_2000
+    restart: unless-stopped
+    volumes:
+      - ./backend/src/DNABERT-Promoters_2000:/src
+      - ./backend/src/DNABERT-Promoters_2000/respond/FIX:/
     env_file:
       - .env
 
