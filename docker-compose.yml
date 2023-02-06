@@ -15,19 +15,18 @@ services:
 
   #GENA
   gena-spliceai:
-    build: ./backend/src/spliceai
+    build: ./backend/src/gena-spliceai
     restart: unless-stopped
     volumes:
-      - ./backend/src/spliceai:/src
+      - ./backend/src/gena-spliceai:/src
     env_file:
       - .env
 
   gena-deepsea:
-    build: ./backend/src/deepsea
+    build: ./backend/src/gena-deepsea
     restart: unless-stopped
     volumes:
-      - ./backend/src/deepsea:/src
-      - ./backend/src/deepsea/respond/FIX:/
+      - ./backend/src/gena-deepsea:/src
     env_file:
       - .env
 
@@ -37,7 +36,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./backend/src/DNABERT-DeepSTARR:/src
-      - ./backend/src/DNABERT-DeepSTARR/respond/DNABERT_storage:/DNABERT_storage
     env_file:
       - .env
 
@@ -46,7 +44,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./backend/src/DNABERT-DeepSea:/src
-      - ./backend/src/DNABERT-DeepSea/respond/FIX:/
     env_file:
       - .env
 
@@ -55,7 +52,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./backend/src/DNABERT-Promoters_2000:/src
-      - ./backend/src/DNABERT-Promoters_2000/respond/FIX:/
     env_file:
       - .env
 
