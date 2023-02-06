@@ -36,6 +36,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./backend/src/DNABERT-DeepSTARR:/src
+      - ./backend/src/DNABERT-DeepSTARR/respond/DNABERT_storage:/DNABERT_storage
     env_file:
       - .env
 
@@ -44,6 +45,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./backend/src/DNABERT-DeepSea:/src
+      - ./backend/src/DNABERT-DeepSea/respond/DNABERT_storage:/DNABERT_storage
     env_file:
       - .env
 
@@ -52,6 +54,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./backend/src/DNABERT-Promoters_2000:/src
+      - ./backend/src/DNABERT-Promoters_2000/respond/DNABERT_storage:/DNABERT_storage
     env_file:
       - .env
 
