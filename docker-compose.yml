@@ -30,6 +30,14 @@ services:
     env_file:
       - .env
 
+  gena-promoters-2000:
+    build: ./backend/src/gena-promoters_2000
+    restart: unless-stopped
+    volumes:
+      - ./backend/src/gena-promoters_2000:/src
+    env_file:
+      - .env
+
   #DNABERT
   dnabert-deepstarr:
     build: ./backend/src/DNABERT-DeepSTARR
