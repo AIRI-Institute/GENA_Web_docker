@@ -38,6 +38,14 @@ services:
     env_file:
       - .env
 
+  gena-deepstarr:
+    build: ./backend/src/gena-deepstarr
+    restart: unless-stopped
+    volumes:
+      - ./backend/src/gena-deepstarr:/src
+    env_file:
+      - .env
+
   #DNABERT
   dnabert-deepstarr:
     build: ./backend/src/DNABERT-DeepSTARR
