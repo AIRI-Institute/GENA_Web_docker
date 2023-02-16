@@ -4,8 +4,23 @@ app-init:
 	cp .env.example .env
 	docker-compose run --rm node make app-build
 
-app-build:
+backend-restart: backend-git-pull docker-build docker-down docker-up
+
+docker-down:
+	docker-compose down
+
+docker-up:
+	docker-compose up -d
+
+docker-build:
+	docker-compose build
+
+backend-git-pull:
+	git -C ./backend pull origin master
+
+frontend-git-pull:
+	git ./frontned pull origin master
+
+frontend-build:
 	docker-compose run --rm node make app-build
 
-app-node:
-	docker-compose exec node sh
