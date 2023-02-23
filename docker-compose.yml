@@ -74,6 +74,15 @@ services:
     env_file:
       - .env
 
+  dnabert-spliceai:
+    build: ./backend/src/DNABERT-SpliceAI
+    restart: unless-stopped
+    volumes:
+      - ./backend/src/DNABERT-SpliceAI:/src
+      - ./backend/src/DNABERT-SpliceAI/respond/DNABERT_storage:/DNABERT_storage
+    env_file:
+      - .env
+
 
   node:
     build:
