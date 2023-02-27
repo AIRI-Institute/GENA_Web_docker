@@ -83,6 +83,15 @@ services:
     env_file:
       - .env
 
+  dnabert-promoters-original:
+    build: ./backend/src/DNABERT-Promoters_original
+    restart: unless-stopped
+    volumes:
+      - ./backend/src/DNABERT-Promoters_original:/src
+      - ./backend/src/DNABERT-Promoters_original/respond/DNABERT_storage:/DNABERT_storage
+    env_file:
+      - .env
+
 
   node:
     build:
